@@ -4,7 +4,7 @@ import "./ManChinh.css";
 
 function Manchinh() {
   return (
-    <div className="root">
+    <div className="rootmanchinh">
       <div className="overlay"></div>
       <img
         className="anh-thu-tuong"

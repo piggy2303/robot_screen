@@ -4,7 +4,7 @@ import ManchiTiet from "./ManChiTiet/ManChiTiet";
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Manchinh />
       {/* <ManchiTiet></ManchiTiet> */}
     </div>
