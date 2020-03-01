@@ -1,51 +1,52 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./ManChinh.css";
+import { data_man_chinh } from "../data/data";
 
-function Manchinh() {
-  return (
-    <div className="rootmanchinh">
-      <div className="overlay"></div>
-      <img
-        className="anh-thu-tuong"
-        src={require("../img/thutuong.jpg")}
-        height="420"
-        width="420"
-      />
-
-      <div className="masthead">
-        <div className="masthead-bg"></div>
-        <div className="container h-100">
-          <div className="row h-100">
-            <div className="col-10 my-auto">
-              <div className="masthead-content text-white py-5 py-md-0">
-                <h3 className="mb-4">
-                  Thủ tướng chỉ thị đẩy lùi "tín dụng đen"
-                </h3>
-                <p className="mb-5">
-                  Nổi lên là tình trạng các đối tượng lợi dụng mạng viễn thông,
-                  Internet, núp bóng các doanh nghiệp có chức năng cho vay tài
-                  chính, dịchđến 300%, thậm chí lên đến 700%/năm đối với khoản
-                  tiền ở thời điểm vay, nhằm thu lợi bất chính.
-                </p>
-              </div>
+class ManchiTiet extends Component {
+  ren_data = () => {
+    return data_man_chinh.map(item => (
+      <div
+        className="col-md-4 col-sm-6 portfolio-item"
+        onClick={() => this.props.click_chi_tiet(item)}
+      >
+        <a className="portfolio-link" data-toggle="modal">
+          <div className="portfolio-hover">
+            <div className="portfolio-hover-content">
+              <i className="fas fa-plus fa-3x"></i>
             </div>
           </div>
+          <img className="imgfluid1" src={item.thumbnail} alt="" />
+        </a>
+        <div className="portfolio-caption">
+          <h4>{item.title_vi}</h4>
+          {/* <p className="text-muted">{item.title}</p> */}
         </div>
       </div>
+    ));
+  };
 
-      <div className="btn-group">
-        <div className="btn-child">
-          <i className="fas fa-volume-up fa-2x"></i>
-          <p> Thuyết minh</p>
-        </div>
-        <div className="btn-child">
-          <i className="fas fa-directions fa-3x"></i>
-          <p> Chỉ đường</p>
-        </div>
+  render() {
+    return (
+      <div id="page-top">
+        <section className="bg-light page-section" id="portfolio">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12 text-center">
+                <h2 className="section-heading text-uppercase">
+                  ĐẠI HỌC QUỐC GIA HÀ NỘI
+                </h2>
+                <h3 className="section-subheading text-muted">
+                  Danh sách các khu trưng bày
+                </h3>
+              </div>
+            </div>
+            <div className="row">{this.ren_data()}</div>
+          </div>
+        </section>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
-export default Manchinh;
+export default ManchiTiet;

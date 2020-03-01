@@ -2,157 +2,54 @@ import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./ManChiTiet.css";
 
-function ManchiTiet() {
-  return (
-    <div id="page-top">
-      <section className="bg-light page-section" id="portfolio">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 text-center">
-              <h2 className="section-heading text-uppercase">Portfolio</h2>
-              <h3 className="section-subheading text-muted">
-                Lorem ipsum dolor sit amet consectetur.
-              </h3>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-4 col-sm-6 portfolio-item">
-              <a
-                className="portfolio-link"
-                data-toggle="modal"
-                href="#portfolioModal1"
-              >
-                <div className="portfolio-hover">
-                  <div className="portfolio-hover-content">
-                    <i className="fas fa-plus fa-3x"></i>
-                  </div>
+class Manchinh extends Component {
+  componentDidMount() {
+    console.log(this.props.data);
+  }
+
+  render() {
+    return (
+      <div className="rootmanchinh">
+        <div className="overlay"></div>
+        <img className="anh-thu-tuong" src={this.props.data.thumbnail} />
+
+        <div className="masthead">
+          <div className="masthead-bg"></div>
+          <div className="container h-100">
+            <div className="row h-100">
+              <div className="col-10 my-auto">
+                <div className="masthead-content text-white py-5 py-md-0">
+                  <h3 className="mb-4">{this.props.data.title_vi}</h3>
+                  <p className="mb-5">
+                    {this.props.data.detail_vi}
+                    {/* {this.props.data.detail_en} */}
+                  </p>
                 </div>
-                <img
-                  className="img-fluid"
-                  src={require("../img/portfolio/01-thumbnail.jpg")}
-                  alt=""
-                />
-              </a>
-              <div className="portfolio-caption">
-                <h4>Threads</h4>
-                <p className="text-muted">Illustration</p>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6 portfolio-item">
-              <a
-                className="portfolio-link"
-                data-toggle="modal"
-                href="#portfolioModal2"
-              >
-                <div className="portfolio-hover">
-                  <div className="portfolio-hover-content">
-                    <i className="fas fa-plus fa-3x"></i>
-                  </div>
-                </div>
-                <img
-                  className="img-fluid"
-                  src={require("../img/portfolio/01-thumbnail.jpg")}
-                  alt=""
-                />
-              </a>
-              <div className="portfolio-caption">
-                <h4>Explore</h4>
-                <p className="text-muted">Graphic Design</p>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6 portfolio-item">
-              <a
-                className="portfolio-link"
-                data-toggle="modal"
-                href="#portfolioModal3"
-              >
-                <div className="portfolio-hover">
-                  <div className="portfolio-hover-content">
-                    <i className="fas fa-plus fa-3x"></i>
-                  </div>
-                </div>
-                <img
-                  className="img-fluid"
-                  src="img/portfolio/03-thumbnail.jpg"
-                  alt=""
-                />
-              </a>
-              <div className="portfolio-caption">
-                <h4>Finish</h4>
-                <p className="text-muted">Identity</p>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6 portfolio-item">
-              <a
-                className="portfolio-link"
-                data-toggle="modal"
-                href="#portfolioModal4"
-              >
-                <div className="portfolio-hover">
-                  <div className="portfolio-hover-content">
-                    <i className="fas fa-plus fa-3x"></i>
-                  </div>
-                </div>
-                <img
-                  className="img-fluid"
-                  src={require("../img/portfolio/01-thumbnail.jpg")}
-                  alt=""
-                />
-              </a>
-              <div className="portfolio-caption">
-                <h4>Lines</h4>
-                <p className="text-muted">Branding</p>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6 portfolio-item">
-              <a
-                className="portfolio-link"
-                data-toggle="modal"
-                href="#portfolioModal5"
-              >
-                <div className="portfolio-hover">
-                  <div className="portfolio-hover-content">
-                    <i className="fas fa-plus fa-3x"></i>
-                  </div>
-                </div>
-                <img
-                  className="img-fluid"
-                  src={require("../img/portfolio/01-thumbnail.jpg")}
-                  alt=""
-                />
-              </a>
-              <div className="portfolio-caption">
-                <h4>Southwest</h4>
-                <p className="text-muted">Website Design</p>
-              </div>
-            </div>
-            <div className="col-md-4 col-sm-6 portfolio-item">
-              <a
-                className="portfolio-link"
-                data-toggle="modal"
-                href="#portfolioModal6"
-              >
-                <div className="portfolio-hover">
-                  <div className="portfolio-hover-content">
-                    <i className="fas fa-plus fa-3x"></i>
-                  </div>
-                </div>
-                <img
-                  className="img-fluid"
-                  src={require("../img/portfolio/01-thumbnail.jpg")}
-                  alt=""
-                />
-              </a>
-              <div className="portfolio-caption">
-                <h4>Window</h4>
-                <p className="text-muted">Photography</p>
               </div>
             </div>
           </div>
         </div>
-      </section>
-    </div>
-  );
+
+        <div className="btn-back">
+          <div className="btn-child" onClick={() => this.props.click_back()}>
+            <i className="fas fa-times fa-2x"></i>
+            <p>Trở về</p>
+          </div>
+        </div>
+
+        <div className="btn-group">
+          <div className="btn-child">
+            <i className="fas fa-volume-up fa-2x"></i>
+            <p> Thuyết minh</p>
+          </div>
+          <div className="btn-child">
+            <i className="fas fa-directions fa-3x"></i>
+            <p> Chỉ đường</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default ManchiTiet;
+export default Manchinh;
