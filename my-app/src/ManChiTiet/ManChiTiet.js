@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./ManChiTiet.css";
+import SwiftSlider from "react-swift-slider";
 
 class Manchinh extends Component {
   componentDidMount() {
@@ -11,7 +12,16 @@ class Manchinh extends Component {
     return (
       <div className="rootmanchinh">
         <div className="overlay"></div>
-        <img className="anh-thu-tuong" src={this.props.data.thumbnail} />
+        {/* <img  src={this.props.data.thumbnail} /> */}
+        <div className="anh-thu-tuong">
+          <SwiftSlider
+            data={this.props.data.list_img}
+            enableNextAndPrev={false}
+            height={800}
+            enableNextAndPrev={true}
+            interval={3000}
+          />
+        </div>
 
         <div className="masthead">
           <div className="masthead-bg"></div>
@@ -20,7 +30,12 @@ class Manchinh extends Component {
               <div className="col-10 my-auto">
                 <div className="masthead-content text-white py-5 py-md-0">
                   <h3 className="mb-4">{this.props.data.title_vi}</h3>
-                  <p className="mb-5">
+                  <p
+                    className="mb-5"
+                    unselectable="on"
+                    onselectstart="return false;"
+                    onmousedown="return false;"
+                  >
                     {this.props.data.detail_vi}
                     {/* {this.props.data.detail_en} */}
                   </p>
