@@ -82,8 +82,28 @@ class App extends Component {
     }
   };
 
+  wake_up = () => {
+    fetch(url.wake_up)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(Error => console.log(Error));
+  };
+
   render() {
-    return <div onClick={() => this.loadData()}>{this.render_blank()}</div>;
+    return (
+      <div
+        onClick={() => {
+          this.setState({
+            is_blank: false
+          });
+          this.wake_up();
+        }}
+      ></div>
+    );
   }
 }
 
