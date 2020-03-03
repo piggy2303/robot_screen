@@ -2,11 +2,34 @@ import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./ManChiTiet.css";
 import SwiftSlider from "react-swift-slider";
+import url from "../url";
 
 class Manchinh extends Component {
   componentDidMount() {
     console.log(this.props.data);
   }
+
+  thuyet_minh = () => {
+    fetch(url.thuyet_minh + "?id=" + this.props.data.id)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(Error => console.log(Error));
+  };
+
+  chi_duong = () => {
+    fetch(url.chi_duong + "?id=" + this.props.data.id)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(Error => console.log(Error));
+  };
 
   render() {
     return (
@@ -53,11 +76,11 @@ class Manchinh extends Component {
         </div>
 
         <div className="btn-group">
-          <div className="btn-child">
+          <div className="btn-child" onClick={() => this.thuyet_minh()}>
             <i className="fas fa-volume-up fa-2x"></i>
             <p> Thuyết minh</p>
           </div>
-          <div className="btn-child">
+          <div className="btn-child" onClick={() => this.chi_duong()}>
             <i className="fas fa-directions fa-3x"></i>
             <p> Chỉ đường</p>
           </div>

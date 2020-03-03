@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => this.loadData(), 6000);
+    this.timer = setInterval(() => this.loadData(), 3000);
   }
 
   async loadData() {
@@ -29,6 +29,11 @@ class App extends Component {
         if (data.status == 1) {
           this.setState({
             is_blank: true
+          });
+        }
+        if (data.status == 0) {
+          this.setState({
+            is_blank: false
           });
         }
       })
