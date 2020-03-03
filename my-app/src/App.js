@@ -102,7 +102,9 @@ class App extends Component {
           });
           this.wake_up();
         }}
-      ></div>
+      >
+        {this.render_blank()}
+      </div>
     );
   }
 }
