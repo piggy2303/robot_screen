@@ -83,17 +83,7 @@ class App extends Component {
   };
 
   render() {
-    return (
-      <div
-        onClick={() =>
-          this.setState({
-            is_blank: false
-          })
-        }
-      >
-        {this.render_blank()}
-      </div>
-    );
+    return <div onClick={() => this.loadData()}>{this.render_blank()}</div>;
   }
 }
 
