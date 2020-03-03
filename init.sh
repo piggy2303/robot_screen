@@ -1,3 +1,7 @@
+git fetch
+
+git pull origin master
+
 killall node
 
 cd my-app
