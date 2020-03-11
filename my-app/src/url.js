@@ -1,7 +1,10 @@
+const localhost = "http://localhost:3008/";
+
 const url = {
-  blank: "http://localhost:3008/blank_page",
-  thuyet_minh: "http://localhost:3008/thuyet_minh",
-  chi_duong: "http://localhost:3008/chi_duong"
+  blank: localhost + "blank_page",
+  thuyet_minh: localhost + "thuyet_minh",
+  stop_thuyet_minh: localhost + "stop_thuyet_minh",
+  chi_duong: localhost + "chi_duong"
 };
 
 export default url;

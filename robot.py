@@ -35,7 +35,7 @@ def blank_page():
     # ROS here
     # neu muon lam man hinh den => return response_body(trt, "hello")
     # neu muon lam man hinh binh thuong => return response_body(0, "hello")
-    return response_body(1, "hello")
+    return response_body(0, "blank_page")
 
 
 @app.route("/thuyet_minh", methods=['GET'])
@@ -43,12 +43,19 @@ def blank_page():
 # http://0.0.0.0:5000/thuyet_minh?id=1
 def thuyet_minh():
     id = request.args.get('id', default=1, type=int)
-
+    print("thuyet_minh", id)
     # id la id cua khu can thuyet minh
     # ROS here
     # cai nay goi file thuyet minh
     # luon luon return  response_body(1, "hello")
-    return response_body(1, "hello")
+    return response_body(1, "thuyet_minh")
+
+
+@app.route("/stop_thuyet_minh", methods=['GET'])
+def stop_thuyet_minh():
+    # ROS here
+    # luon luon return  response_body(1, "hello")
+    return response_body(1, "stop_thuyet_minh")
 
 
 @app.route("/chi_duong", methods=['GET'])
@@ -56,11 +63,12 @@ def thuyet_minh():
 # http://0.0.0.0:5000/chi_duong?id=1
 def chi_duong():
     id = request.args.get('id', default=1, type=int)
+    print("chi_duong", id)
     # id la id cua khu can chi_duong
     # ROS here
     # cai nay goi file chi_duong
     # luon luon return  response_body(1, "hello")
-    return response_body(1, "hello")
+    return response_body(1, "chi_duong")
 
 
 if __name__ == "__main__":

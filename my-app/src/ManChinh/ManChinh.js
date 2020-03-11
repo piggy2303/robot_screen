@@ -2,13 +2,28 @@ import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./ManChinh.css";
 import { data_man_chinh } from "../data/data";
+import url from "../url";
 
 class ManchiTiet extends Component {
+  thuyet_minh = id => {
+    fetch(url.thuyet_minh + "?id=" + id)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(Error => console.log(Error));
+  };
+
   ren_data = () => {
     return data_man_chinh.map(item => (
       <div
         className="col-md-4 col-sm-6 portfolio-item"
-        onClick={() => this.props.click_chi_tiet(item)}
+        onClick={() => {
+          this.thuyet_minh(item.id);
+          this.props.click_chi_tiet(item);
+        }}
       >
         <a className="portfolio-link" data-toggle="modal">
           <div className="portfolio-hover">
@@ -20,7 +35,6 @@ class ManchiTiet extends Component {
         </a>
         <div className="portfolio-caption">
           <h4>{item.title_vi}</h4>
-          {/* <p className="text-muted">{item.title}</p> */}
         </div>
       </div>
     ));

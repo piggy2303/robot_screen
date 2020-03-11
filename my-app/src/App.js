@@ -47,7 +47,19 @@ class App extends Component {
     });
   };
 
+  stop_thuyet_minh = () => {
+    fetch(url.stop_thuyet_minh)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+      })
+      .catch(Error => console.log(Error));
+  };
+
   click_back_to_man_chinh = () => {
+    this.stop_thuyet_minh();
     this.setState({
       is_chi_tiet: false
     });
