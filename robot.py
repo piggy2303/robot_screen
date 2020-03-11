@@ -71,5 +71,12 @@ def chi_duong():
     return response_body(1, "chi_duong")
 
 
+@app.route("/wake_up", methods=['GET'])
+def wake_up():
+    # ROS here
+    # luon luon return  response_body(1, "hello")
+    return response_body(1, "hello")
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=3008)
