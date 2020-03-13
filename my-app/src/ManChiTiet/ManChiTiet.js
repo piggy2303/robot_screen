@@ -5,8 +5,9 @@ import SwiftSlider from "react-swift-slider";
 import url from "../url";
 
 class Manchinh extends Component {
-  componentDidMount() {
-    console.log(this.props.data);
+  constructor(props) {
+    super(props);
+    this.state = {};
   }
 
   thuyet_minh = () => {
@@ -30,6 +31,31 @@ class Manchinh extends Component {
       })
       .catch(Error => console.log(Error));
   };
+
+  componentDidMount() {
+    this.timer = setInterval(() => this.loadData(), 3000);
+  }
+
+  async loadData() {
+    fetch(url.blank)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        if (data.status == 1) {
+          this.setState({
+            is_blank: true
+          });
+        }
+        if (data.status == 0) {
+          this.setState({
+            is_blank: false
+          });
+        }
+      })
+      .catch(Error => console.log(Error));
+  }
 
   render() {
     return (
@@ -60,7 +86,6 @@ class Manchinh extends Component {
                     onmousedown="return false;"
                   >
                     {this.props.data.detail_vi}
-                    {/* {this.props.data.detail_en} */}
                   </p>
                 </div>
               </div>
