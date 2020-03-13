@@ -68,22 +68,22 @@ class Manchinh extends Component {
           </div>
         </div>
 
-        <div className="btn-back">
+        {/* <div className="btn-back">
           <div className="btn-child" onClick={() => this.props.click_back()}>
             <i className="fas fa-times fa-2x"></i>
             <p>Trở về</p>
           </div>
-        </div>
+        </div> */}
 
         <div className="btn-group">
           {/* <div className="btn-child" onClick={() => this.thuyet_minh()}>
             <i className="fas fa-volume-up fa-2x"></i>
             <p> Thuyết minh</p> 
           </div> */}
-          <div className="btn-child" onClick={() => this.chi_duong()}>
+          {/* <div className="btn-child" onClick={() => this.chi_duong()}>
             <i className="fas fa-directions fa-3x"></i>
             <p> Chỉ đường</p>
-          </div>
+          </div> */}
         </div>
       </div>
     );

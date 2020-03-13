@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ManchiTiet from "./ManChiTiet/ManChiTiet";
 import Manchinh from "./ManChinh/ManChinh";
 import url from "./url";
+import { data_man_chinh } from "./data/data";
 
 // const go_chi_tiet = id;
 
@@ -66,16 +67,16 @@ class App extends Component {
   };
 
   render_main = () => {
-    if (this.state.is_chi_tiet) {
-      return (
-        <ManchiTiet
-          click_back={() => this.click_back_to_man_chinh()}
-          data={this.state.data_chi_tiet}
-        />
-      );
-    } else {
-      return <Manchinh click_chi_tiet={data => this.click_chi_tiet(data)} />;
-    }
+    // if (this.state.is_chi_tiet) {
+    return (
+      <ManchiTiet
+        // click_back={() => this.click_back_to_man_chinh()}
+        data={data_man_chinh[0]}
+      />
+    );
+    // } else {
+    //   return <Manchinh click_chi_tiet={data => this.click_chi_tiet(data)} />;
+    // }
   };
 
   render_blank = () => {
