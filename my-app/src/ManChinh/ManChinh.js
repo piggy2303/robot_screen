@@ -8,7 +8,27 @@ import SwiftSlider from "react-swift-slider";
 class Manchinh extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: null, data_success: false };
+    this.state = {
+      data: null,
+      data_success: false
+    };
+  }
+
+  componentDidMount() {
+    fetch(url.get_data)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        console.log(data);
+        if (data.status == 1) {
+          this.setState({
+            data: data.data,
+            data_success: true
+          });
+        }
+      })
+      .catch(Error => console.log(Error));
   }
 
   nhac_rua_tay = () => {
@@ -24,9 +44,21 @@ class Manchinh extends Component {
 
   ren_data = () => {
     let data = [
-      { text: "Hà Nội", data: 40, color: "rgb(76,175,80)" },
-      { text: "Việt Nam", data: 400, color: "rgb(30,136,229)" },
-      { text: "Thế giới", data: 44400, color: "rgb(244,67,54)" }
+      {
+        text: "Hà Nội",
+        data: this.state.data.hanoi,
+        color: "rgb(76,175,80)"
+      },
+      {
+        text: "Việt Nam",
+        data: this.state.data.vietnam,
+        color: "rgb(30,136,229)"
+      },
+      {
+        text: "Thế giới",
+        data: this.state.data.thegioi,
+        color: "rgb(244,67,54)"
+      }
     ];
 
     return data.map(item => (
@@ -47,16 +79,7 @@ class Manchinh extends Component {
   };
 
   ren_data_bottom = () => {
-    let data = [
-      { quoc_gia: "Trung Quốc", ca_nhiem: 40, tu_vong: 40 },
-      { quoc_gia: "Trung Quốc", ca_nhiem: 40, tu_vong: 40 },
-      { quoc_gia: "Trung Quốc", ca_nhiem: 40, tu_vong: 40 },
-      { quoc_gia: "Trung Quốc", ca_nhiem: 40, tu_vong: 40 },
-      { quoc_gia: "Trung Quốc", ca_nhiem: 40, tu_vong: 40 },
-      { quoc_gia: "Trung Quốc", ca_nhiem: 40, tu_vong: 40 },
-      { quoc_gia: "Trung Quốc", ca_nhiem: 40, tu_vong: 40 },
-      { quoc_gia: "Trung Quốc", ca_nhiem: 40, tu_vong: 40 }
-    ];
+    let data = this.state.data.top10;
 
     let style_0 = {
       marginTop: 10,
@@ -135,8 +158,8 @@ class Manchinh extends Component {
         <section className="bg-light page-section" id="portfolio">
           <div className="container">
             <div className="row">
-              {this.ren_data()}
-              {this.ren_data_bottom()}
+              {this.state.data_success ? this.ren_data() : null}
+              {this.state.data_success ? this.ren_data_bottom() : null}
               {this.ren_data_bottom_right()}
             </div>
           </div>
