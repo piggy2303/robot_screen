@@ -122,7 +122,7 @@ class Manchinh extends Component {
             <div className="row">{this.ren_data_bottom()}</div>
           </div>
         </section>
-        <div>
+        <div onClick={() => this.props.go_chuc_nang()}>
           <img
             className="anh-thu-tuong-1"
             src="https://brcast-msg-photo.zadn.vn/1409707819560034765/67ec362a9f6f76312f7e.jpg"

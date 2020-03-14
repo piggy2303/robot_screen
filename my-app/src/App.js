@@ -47,13 +47,6 @@ class App extends Component {
       .catch(Error => console.log(Error));
   }
 
-  click_chi_tiet = data => {
-    this.setState({
-      data_chi_tiet: data,
-      is_chi_tiet: true
-    });
-  };
-
   stop_thuyet_minh = () => {
     fetch(url.stop_thuyet_minh)
       .then(response => {
@@ -76,16 +69,38 @@ class App extends Component {
     if (this.state.type == MANCHITIET) {
       return (
         <ManchiTiet
-          click_back={() => this.click_back_to_man_chinh()}
-          data={data_man_chinh[0]}
+          click_back={() =>
+            this.setState({
+              type: MANCHUCNANG
+            })
+          }
+          data={this.state.data_chi_tiet}
         />
       );
     }
     if (this.state.type == MANCHINH) {
-      return <Manchinh go_chuc_nang={} />;
+      return (
+        <Manchinh
+          go_chuc_nang={() =>
+            this.setState({
+              type: MANCHUCNANG
+            })
+          }
+        />
+      );
     }
     if (this.state.type == MANCHUCNANG) {
-      return <ManChucnang click_back={() => this.click_back_to_man_chinh()} />;
+      return (
+        <ManChucnang
+          click_chi_tiet={data =>
+            this.setState({
+              type: MANCHITIET,
+              data_chi_tiet: data
+            })
+          }
+          click_back={() => this.click_back_to_man_chinh()}
+        />
+      );
     }
   };
 
