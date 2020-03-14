@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
 import "./ManChinh.css";
-import { data_man_chinh } from "../data/data";
+import { data_man_chinh, data_img_text } from "../data/data";
 import url from "../url";
 import SwiftSlider from "react-swift-slider";
 
@@ -24,25 +24,19 @@ class Manchinh extends Component {
 
   ren_data = () => {
     let data = [
-      { text: "Hà Nội", data: 40 },
-      { text: "Việt Nam", data: 400 },
-      { text: "Thế giới", data: 44400 }
+      { text: "Hà Nội", data: 40, color: "rgb(76,175,80)" },
+      { text: "Việt Nam", data: 400, color: "rgb(30,136,229)" },
+      { text: "Thế giới", data: 44400, color: "rgb(244,67,54)" }
     ];
 
     return data.map(item => (
-      <div
-        className="col-md-4 col-sm-6 portfolio-item"
-        onClick={() => {
-          // this.thuyet_minh(item.id);
-          // this.props.click_chi_tiet(item);
-        }}
-      >
+      <div className="col-md-4 col-sm-6 portfolio-item">
         <div className="portfolio-item-coro">
           <div className="portfolio-caption-top">
-            <h1 className="text-ca-nhiem">{item.data}</h1>
-          </div>
-          <div className="portfolio-caption">
-            <h4>{item.text}</h4>
+            <h1 style={{ color: item.color }}>{item.text}</h1>
+            <h1 className="text-ca-nhiem" style={{ color: item.color }}>
+              {item.data}
+            </h1>
           </div>
         </div>
       </div>
@@ -62,10 +56,10 @@ class Manchinh extends Component {
     ];
 
     let style_0 = {
+      marginTop: 10,
       display: "flex",
-      flexDirection: "column",
-      flex: 1.5,
-      marginTop: 10
+      flexDirection: "row",
+      flex: 1
     };
 
     let style_1 = {
@@ -79,34 +73,50 @@ class Manchinh extends Component {
       <div className="col-md-6 col-sm-6 portfolio-item">
         <div className="portfolio-item-coro">
           <div className="portfolio-caption">
-            <h2>Tình hình nCoV thế giới</h2>
-            <div
-              style={{
-                marginTop: 10,
-                display: "flex",
-                flexDirection: "row",
-                flex: 1
-              }}
-            >
-              <div style={style_0}>
-                <h3>Quốc gia</h3>
+            <h2>Số ca nhiễm nCoV toàn thế giới</h2>
+            <div style={style_0}>
+              <div style={style_1}>
+                <h3 style={{ color: "rgb(76,175,80)" }}>Quốc gia</h3>
                 {data.map(item => (
-                  <h5>{item.quoc_gia}</h5>
+                  <h5 style={{ color: "rgb(76,175,80)" }}>{item.quoc_gia}</h5>
                 ))}
               </div>
               <div style={style_1}>
-                <h3>Ca nhiễm</h3>
+                <h3 style={{ color: "rgb(30,136,229)" }}>Ca nhiễm</h3>
                 {data.map(item => (
-                  <h5>{item.ca_nhiem}</h5>
+                  <h5 style={{ color: "rgb(30,136,229)" }}>{item.ca_nhiem}</h5>
                 ))}
               </div>
               <div style={style_1}>
-                <h3>Tử vong</h3>
+                <h3 style={{ color: "red" }}>Tử vong</h3>
                 {data.map(item => (
-                  <h5>{item.tu_vong}</h5>
+                  <h5 style={{ color: "red" }}>{item.tu_vong}</h5>
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  ren_data_bottom_right = () => {
+    return (
+      <div className="col-md-6 col-sm-6 portfolio-item">
+        <div className="portfolio-item-coro">
+          <div
+            className="portfolio-caption"
+            onClick={() => this.props.go_chuc_nang()}
+          >
+            <h2>Chi tiết về dịch bệnh</h2>
+            <SwiftSlider
+              data={data_img_text}
+              enableNextAndPrev={false}
+              height={300}
+              enableNextAndPrev={true}
+              interval={3000}
+              showDots={false}
+            />
           </div>
         </div>
       </div>
@@ -118,16 +128,13 @@ class Manchinh extends Component {
       <div id="page-top">
         <section className="bg-light page-section" id="portfolio">
           <div className="container">
-            <div className="row">{this.ren_data()}</div>
-            <div className="row">{this.ren_data_bottom()}</div>
+            <div className="row">
+              {this.ren_data()}
+              {this.ren_data_bottom()}
+              {this.ren_data_bottom_right()}
+            </div>
           </div>
         </section>
-        <div onClick={() => this.props.go_chuc_nang()}>
-          <img
-            className="anh-thu-tuong-1"
-            src="https://brcast-msg-photo.zadn.vn/1409707819560034765/67ec362a9f6f76312f7e.jpg"
-          ></img>
-        </div>
       </div>
     );
   }

@@ -32,30 +32,7 @@ class Manchinh extends Component {
       .catch(Error => console.log(Error));
   };
 
-  componentDidMount() {
-    this.timer = setInterval(() => this.loadData(), 3000);
-  }
-
-  async loadData() {
-    fetch(url.blank)
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-        if (data.status == 1) {
-          this.setState({
-            is_blank: true
-          });
-        }
-        if (data.status == 0) {
-          this.setState({
-            is_blank: false
-          });
-        }
-      })
-      .catch(Error => console.log(Error));
-  }
+  componentDidMount() {}
 
   render() {
     return (

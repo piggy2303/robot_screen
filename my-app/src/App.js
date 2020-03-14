@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ManchiTiet from "./ManChiTiet/ManChiTiet";
 import Manchinh from "./ManChinh/ManChinh";
-import ManChucnang from "./ManChucnang";
+import ManChucnang from "./ManChucnang/ManChucNang";
 import url from "./url";
 import { data_man_chinh } from "./data/data";
 
@@ -18,34 +18,11 @@ class App extends Component {
       is_chi_tiet: false,
       data_chi_tiet: null,
       is_blank: false,
-      type: MANCHINH
+      type: MANCHUCNANG
     };
   }
 
-  componentDidMount() {
-    this.timer = setInterval(() => this.loadData(), 3000);
-  }
-
-  async loadData() {
-    fetch(url.blank)
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-        if (data.status == 1) {
-          this.setState({
-            is_blank: true
-          });
-        }
-        if (data.status == 0) {
-          this.setState({
-            is_blank: false
-          });
-        }
-      })
-      .catch(Error => console.log(Error));
-  }
+  componentDidMount() {}
 
   stop_thuyet_minh = () => {
     fetch(url.stop_thuyet_minh)
@@ -98,7 +75,7 @@ class App extends Component {
               data_chi_tiet: data
             })
           }
-          click_back={() => this.click_back_to_man_chinh()}
+          click_back={() => this.setState({ type: MANCHINH })}
         />
       );
     }

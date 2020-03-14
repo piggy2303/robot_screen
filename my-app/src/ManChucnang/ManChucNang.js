@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import logo from "./logo.svg";
-import "./ManChinh.css";
+import "./ManChucNang.css";
 import { data_man_chinh } from "../data/data";
 import url from "../url";
 
@@ -46,13 +46,22 @@ class ManchiTiet extends Component {
         <section className="bg-light page-section" id="portfolio">
           <div className="container">
             <div className="row">
-              <div className="col-lg-12 text-center">
-                <h2 className="section-heading text-uppercase">
-                  ĐẠI HỌC QUỐC GIA HÀ NỘI
-                </h2>
-                <h3 className="section-subheading text-muted">
-                  Danh sách các khu trưng bày
-                </h3>
+              <div className="col-md-4 col-sm-6 portfolio-item"></div>
+              <div className="col-md-4 col-sm-6 portfolio-item">
+                <div
+                  style={{
+                    height: 50,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    paddingTop: 10,
+                    borderRadius: 15,
+                    backgroundColor: "rgb(21,101,192)"
+                  }}
+                  onClick={() => this.props.click_back()}
+                >
+                  <h1 style={{ color: "white" }}>Thoát</h1>
+                </div>
               </div>
             </div>
             <div className="row">{this.ren_data()}</div>

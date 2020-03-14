@@ -14,7 +14,7 @@ const data_man_chinh = [
   {
     id: 1,
     id_sound: "HuongDanRuaTayDungCach",
-    title_vi: "Hướng dẫn rửa tay đúng cách",
+    title_vi: "Rửa tay đúng cách",
     detail_vi:
       "Rửa tay bằng xà phòng 1. Rửa tay bằng xà phòng trong ít nhất 20 giây để phòng lây nhiễm nCoV. Rửa tay nhiều lần trong ngày, sau khi ho, hắt hơi, sau khi tháo khẩu trang, sau khi chăm sóc người bệnh hoặc nghi ngờ mắc bệnh, sau khi tiếp xúc với dịch tiết mũi, họng, ho hắt hơi của người mắc bệnh hoặc nghi ngờ mắc bệnh, trước các bữa ăn và trước khi chế biến thực phẩm, sau khi tiếp xúc với động vật hoặc chất thải của động vật, sau khi đi vệ sinh.",
     thumbnail: require("./img_coro/handwash.PNG"),
@@ -27,7 +27,7 @@ const data_man_chinh = [
   {
     id: 2,
     id_sound: "SuDungKhauTrangDungCach",
-    title_vi: "Sử dụng khẩu trang đúng cách",
+    title_vi: "Sử dụng khẩu trang",
     detail_vi:
       "Bộ Y Tế khuyến cáo: 1. Người dân chỉ đeo khẩu trang y tế trong các trường hợp sau đây: 1/Khi tiếp xúc, chăm sóc người nhiễm hoặc nghi ngờ nhiễm virus nCov. 2/Khi chăm sóc hoặc có tiếp xúc gần với người có triệu chứng mắc bệnh đường hô hấp như ho, khó thở, chảy nước mũi... 3/Khi được chỉ định tự theo dõi, cách ly tại nhà hoặc khi đi thăm hỏi, khám, điều trị tại các cơ sở khám chữa bệnh.2. Người khỏe mạnh, không có các triệu chứng bệnh về đường hô",
     thumbnail: require("./img_coro/khautrang0.jpg"),
@@ -51,6 +51,20 @@ const data_man_chinh = [
     ]
   },
   {
+    id: 5,
+    id_sound: "HayCoTrachNhiemVoiBanThan",
+    title_vi: "Cách phòng dịch",
+    detail_vi:
+      "Người dân khi có biểu hiện nghi ngờ mắc bệnh viêm đường hô hấp cấp COVID-19: sốt, ho, khó thở và có tiếp xúc gần với trường hợp bệnh hoặc nghi ngờ mắc bệnh trong vòng 14 ngày trước khi xuất hiện biểu hiện bệnh, hãy đến bệnh viện tuyến quận, huyện gần nhất để được khám và điều trị kịp thời. Trước khi đến hãy điện thoại thông báo biểu hiện bệnh và tiền sử tiếp xúc, đi lại với cơ sở y tế để được hướng dẫn phù hợp.Các đội phản ứng nhanh của Bộ Y tế luôn sẵn sàng",
+    thumbnail: require("./img_coro/trachnhiem0.jpg"),
+    list_img: [
+      { id: 1, src: require("./img_coro/trachnhiem.jpg") },
+      { id: 2, src: require("./img_coro/trachnhiem0.jpg") },
+      { id: 3, src: require("./img_coro/trachnhiem1.jpg") },
+      { id: 4, src: require("./img_coro/trachnhiem2.jpg") }
+    ]
+  },
+  {
     id: 4,
     id_sound: "CungChungTayChanDungCovid19",
     title_vi: "Khuyến cáo của bộ y tế",
@@ -64,23 +78,30 @@ const data_man_chinh = [
       { id: 3, src: require("./img_coro/khuyencao3.jpg") },
       { id: 4, src: require("./img_coro/khuyencao4.jpg") }
     ]
-  },
-  {
-    id: 5,
-    id_sound: "HayCoTrachNhiemVoiBanThan",
-    title_vi: "Có trách nhiệm với bản thân",
-    detail_vi:
-      "Người dân khi có biểu hiện nghi ngờ mắc bệnh viêm đường hô hấp cấp COVID-19: sốt, ho, khó thở và có tiếp xúc gần với trường hợp bệnh hoặc nghi ngờ mắc bệnh trong vòng 14 ngày trước khi xuất hiện biểu hiện bệnh, hãy đến bệnh viện tuyến quận, huyện gần nhất để được khám và điều trị kịp thời. Trước khi đến hãy điện thoại thông báo biểu hiện bệnh và tiền sử tiếp xúc, đi lại với cơ sở y tế để được hướng dẫn phù hợp.Các đội phản ứng nhanh của Bộ Y tế luôn sẵn sàng",
-    thumbnail: require("./img_coro/trachnhiem0.jpg"),
-    list_img: [
-      { id: 1, src: require("./img_coro/trachnhiem.jpg") },
-      { id: 2, src: require("./img_coro/trachnhiem0.jpg") },
-      { id: 3, src: require("./img_coro/trachnhiem1.jpg") },
-      { id: 4, src: require("./img_coro/trachnhiem2.jpg") }
-    ]
   }
 ];
 
-const data_img_text = [];
+const data_img_text = [
+  { id: 0, src: require("./img_coro/dauhieu.jpg") },
+  { id: 1, src: require("./img_coro/dauhieu2.jpg") },
+  { id: 2, src: require("./img_coro/handwash.PNG") },
+  { id: 3, src: require("./img_coro/handwash1.jpg") },
+  { id: 4, src: require("./img_coro/handwash2.jpg") },
+  { id: 5, src: require("./img_coro/khautrang1.jpg") },
+  { id: 6, src: require("./img_coro/khautrang2.jpg") },
+  { id: 7, src: require("./img_coro/khautrang3.png") },
+  { id: 8, src: require("./img_coro/canuoc1.jpg") },
+  { id: 9, src: require("./img_coro/canuoc2.jpg") },
+  { id: 10, src: require("./img_coro/canuoc3.jpg") },
+  { id: 11, src: require("./img_coro/khuyencao0.jpeg") },
+  { id: 12, src: require("./img_coro/khuyencao1.jpg") },
+  { id: 13, src: require("./img_coro/khuyencao2.jpg") },
+  { id: 14, src: require("./img_coro/khuyencao3.jpg") },
+  { id: 15, src: require("./img_coro/khuyencao4.jpg") },
+  { id: 16, src: require("./img_coro/trachnhiem.jpg") },
+  { id: 17, src: require("./img_coro/trachnhiem0.jpg") },
+  { id: 18, src: require("./img_coro/trachnhiem1.jpg") },
+  { id: 19, src: require("./img_coro/trachnhiem2.jpg") }
+];
 
 export { data_man_chinh, data_img_text };
