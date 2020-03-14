@@ -11,8 +11,8 @@ class Manchinh extends Component {
     this.state = { data: null, data_success: false };
   }
 
-  thuyet_minh = id => {
-    fetch(url.thuyet_minh + "?id=" + id)
+  nhac_rua_tay = () => {
+    fetch(url.nhac_rua_tay)
       .then(response => {
         return response.json();
       })
@@ -30,7 +30,10 @@ class Manchinh extends Component {
     ];
 
     return data.map(item => (
-      <div className="col-md-4 col-sm-6 portfolio-item">
+      <div
+        className="col-md-4 col-sm-6 portfolio-item"
+        onClick={() => this.nhac_rua_tay()}
+      >
         <div className="portfolio-item-coro">
           <div className="portfolio-caption-top">
             <h1 style={{ color: item.color }}>{item.text}</h1>
@@ -70,7 +73,10 @@ class Manchinh extends Component {
     };
 
     return (
-      <div className="col-md-6 col-sm-6 portfolio-item">
+      <div
+        className="col-md-6 col-sm-6 portfolio-item"
+        onClick={() => this.nhac_rua_tay()}
+      >
         <div className="portfolio-item-coro">
           <div className="portfolio-caption">
             <h2>Số ca nhiễm nCoV toàn thế giới</h2>

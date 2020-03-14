@@ -18,7 +18,7 @@ class App extends Component {
       is_chi_tiet: false,
       data_chi_tiet: null,
       is_blank: false,
-      type: MANCHUCNANG
+      type: MANCHINH
     };
   }
 
@@ -35,22 +35,16 @@ class App extends Component {
       .catch(Error => console.log(Error));
   };
 
-  click_back_to_man_chinh = () => {
-    this.stop_thuyet_minh();
-    this.setState({
-      is_chi_tiet: false
-    });
-  };
-
   render_main = () => {
     if (this.state.type == MANCHITIET) {
       return (
         <ManchiTiet
-          click_back={() =>
+          click_back={() => {
             this.setState({
               type: MANCHUCNANG
-            })
-          }
+            });
+            this.stop_thuyet_minh();
+          }}
           data={this.state.data_chi_tiet}
         />
       );

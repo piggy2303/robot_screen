@@ -10,30 +10,6 @@ class Manchinh extends Component {
     this.state = {};
   }
 
-  thuyet_minh = () => {
-    fetch(url.thuyet_minh + "?id=" + this.props.data.id)
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-      })
-      .catch(Error => console.log(Error));
-  };
-
-  chi_duong = () => {
-    fetch(url.chi_duong + "?id=" + this.props.data.id)
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        console.log(data);
-      })
-      .catch(Error => console.log(Error));
-  };
-
-  componentDidMount() {}
-
   render() {
     return (
       <div className="rootmanchinh">
@@ -75,17 +51,6 @@ class Manchinh extends Component {
             <i className="fas fa-times fa-2x"></i>
             <p>Trở về</p>
           </div>
-        </div>
-
-        <div className="btn-group">
-          {/* <div className="btn-child" onClick={() => this.thuyet_minh()}>
-            <i className="fas fa-volume-up fa-2x"></i>
-            <p> Thuyết minh</p> 
-          </div> */}
-          {/* <div className="btn-child" onClick={() => this.chi_duong()}>
-            <i className="fas fa-directions fa-3x"></i>
-            <p> Chỉ đường</p>
-          </div> */}
         </div>
       </div>
     );

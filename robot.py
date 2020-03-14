@@ -78,5 +78,12 @@ def wake_up():
     return response_body(1, "hello")
 
 
+@app.route("/nhac_rua_tay", methods=['GET'])
+def nhac_rua_tay():
+    # ROS here
+    # luon luon return  response_body(1, "hello")
+    return response_body(1, "hello")
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=3008)
