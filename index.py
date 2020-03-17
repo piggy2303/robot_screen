@@ -69,5 +69,23 @@ def get_data():
     return response_body(1, data)
 
 
+@app.route("/api/edit_data", methods=['POST'])
+def edit_data():
+    try:
+        body_req = request.get_json(force=True)
+    except:
+        return response_body(status="error", data="body error")
+
+    query = {"id": 0}
+    new_value = {"$set": body_req}
+
+    a = mycol.update_one(query, new_value)
+
+    if a.acknowledged:
+        return response_body(1, "ok")
+    else:
+        return response_body(0, "update error")
+
+
 if __name__ == "__main__":
     app.run(debug=True, port=3011)
