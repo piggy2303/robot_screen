@@ -86,4 +86,4 @@ def nhac_rua_tay():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=3008)
+    app.run(debug=True, port=3008,host="0.0.0.0")
