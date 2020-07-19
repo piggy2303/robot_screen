@@ -8,8 +8,8 @@ const data_man_chinh = [
     thumbnail: require("./img_coro/dauhieu.jpg"),
     list_img: [
       { id: 0, src: require("./img_coro/dauhieu.jpg") },
-      { id: 1, src: require("./img_coro/dauhieu2.jpg") }
-    ]
+      { id: 1, src: require("./img_coro/dauhieu2.jpg") },
+    ],
   },
   {
     id: 1,
@@ -21,8 +21,8 @@ const data_man_chinh = [
     list_img: [
       { id: 0, src: require("./img_coro/handwash.PNG") },
       { id: 1, src: require("./img_coro/handwash1.jpg") },
-      { id: 2, src: require("./img_coro/handwash2.jpg") }
-    ]
+      { id: 2, src: require("./img_coro/handwash2.jpg") },
+    ],
   },
   {
     id: 2,
@@ -34,8 +34,8 @@ const data_man_chinh = [
     list_img: [
       { id: 0, src: require("./img_coro/khautrang1.jpg") },
       { id: 1, src: require("./img_coro/khautrang2.jpg") },
-      { id: 2, src: require("./img_coro/khautrang3.png") }
-    ]
+      { id: 2, src: require("./img_coro/khautrang3.png") },
+    ],
   },
   {
     id: 3,
@@ -47,8 +47,8 @@ const data_man_chinh = [
     list_img: [
       { id: 1, src: require("./img_coro/canuoc1.jpg") },
       { id: 2, src: require("./img_coro/canuoc2.jpg") },
-      { id: 3, src: require("./img_coro/canuoc3.jpg") }
-    ]
+      { id: 3, src: require("./img_coro/canuoc3.jpg") },
+    ],
   },
   {
     id: 5,
@@ -61,8 +61,8 @@ const data_man_chinh = [
       { id: 1, src: require("./img_coro/trachnhiem.jpg") },
       { id: 2, src: require("./img_coro/trachnhiem0.jpg") },
       { id: 3, src: require("./img_coro/trachnhiem1.jpg") },
-      { id: 4, src: require("./img_coro/trachnhiem2.jpg") }
-    ]
+      { id: 4, src: require("./img_coro/trachnhiem2.jpg") },
+    ],
   },
   {
     id: 4,
@@ -76,9 +76,9 @@ const data_man_chinh = [
       { id: 1, src: require("./img_coro/khuyencao1.jpg") },
       { id: 2, src: require("./img_coro/khuyencao2.jpg") },
       { id: 3, src: require("./img_coro/khuyencao3.jpg") },
-      { id: 4, src: require("./img_coro/khuyencao4.jpg") }
-    ]
-  }
+      { id: 4, src: require("./img_coro/khuyencao4.jpg") },
+    ],
+  },
 ];
 
 const data_img_text = [
@@ -101,7 +101,7 @@ const data_img_text = [
   { id: 16, src: require("./img_coro/trachnhiem.jpg") },
   { id: 17, src: require("./img_coro/trachnhiem0.jpg") },
   { id: 18, src: require("./img_coro/trachnhiem1.jpg") },
-  { id: 19, src: require("./img_coro/trachnhiem2.jpg") }
+  { id: 19, src: require("./img_coro/trachnhiem2.jpg") },
 ];
 
 export { data_man_chinh, data_img_text };
