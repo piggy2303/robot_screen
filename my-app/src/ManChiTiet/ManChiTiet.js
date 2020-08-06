@@ -11,24 +11,24 @@ class Manchinh extends Component {
 
   thuyet_minh = () => {
     fetch(url.thuyet_minh + "?id=" + this.props.data.id)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log(data);
       })
-      .catch(Error => console.log(Error));
+      .catch((Error) => console.log(Error));
   };
 
   chi_duong = () => {
     fetch(url.chi_duong + "?id=" + this.props.data.id)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log(data);
       })
-      .catch(Error => console.log(Error));
+      .catch((Error) => console.log(Error));
   };
 
   render() {
@@ -72,6 +72,12 @@ class Manchinh extends Component {
           <div className="btn-child" onClick={() => this.props.click_back()}>
             <i className="fas fa-times fa-2x"></i>
             <p>Trở về</p>
+          </div>
+        </div>
+
+        <div className="btn-slient">
+          <div className="btn-child" onClick={() => this.props.stop_talking()}>
+            <i className="fas fa-volume-mute fa-3x"></i>
           </div>
         </div>
 

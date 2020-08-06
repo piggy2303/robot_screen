@@ -58,6 +58,13 @@ def stop_thuyet_minh():
     return response_body(1, "stop_thuyet_minh")
 
 
+@app.route("/stop_talking", methods=['GET'])
+def stop_talking():
+    # ROS here
+    # luon luon return  response_body(1, "stop_talking")
+    return response_body(1, "stop_talking")
+
+
 @app.route("/chi_duong", methods=['GET'])
 # duong link se dang ntn
 # http://0.0.0.0:5000/chi_duong?id=1

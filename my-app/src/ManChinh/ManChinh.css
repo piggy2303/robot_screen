@@ -112,6 +112,16 @@ img::-moz-selection {
   box-shadow: 0 0 0 0.2rem rgba(254, 209, 55, 0.5) !important;
 }
 
+.btn-slient-main {
+  z-index: 4;
+  position: absolute;
+  left: 4rem;
+  top: 4rem;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+
 #mainNav {
   background-color: #212529;
 }

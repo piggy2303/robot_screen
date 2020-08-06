@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
       is_chi_tiet: false,
       data_chi_tiet: null,
-      is_blank: true
+      is_blank: true,
     };
   }
 
@@ -19,49 +19,60 @@ class App extends Component {
     this.timer = setInterval(() => this.loadData(), 3000);
   }
 
+  stop_talking = () => {
+    fetch(url.stop_talking)
+      .then((response) => {
+        console.log(response);
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((Error) => console.log(Error));
+  };
+
   async loadData() {
     fetch(url.blank)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log(data);
         if (data.status == 1) {
           this.setState({
-            is_blank: true
+            is_blank: true,
           });
         }
         if (data.status == 0) {
           this.setState({
-            is_blank: false
+            is_blank: false,
           });
         }
       })
-      .catch(Error => console.log(Error));
+      .catch((Error) => console.log(Error));
   }
 
-  click_chi_tiet = data => {
+  click_chi_tiet = (data) => {
     this.setState({
       data_chi_tiet: data,
-      is_chi_tiet: true
+      is_chi_tiet: true,
     });
   };
 
   stop_thuyet_minh = () => {
     fetch(url.stop_thuyet_minh)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log(data);
       })
-      .catch(Error => console.log(Error));
+      .catch((Error) => console.log(Error));
   };
 
   click_back_to_man_chinh = () => {
     this.stop_thuyet_minh();
     this.setState({
-      is_chi_tiet: false
+      is_chi_tiet: false,
     });
   };
 
@@ -71,10 +82,16 @@ class App extends Component {
         <ManchiTiet
           click_back={() => this.click_back_to_man_chinh()}
           data={this.state.data_chi_tiet}
+          stop_talking={() => this.stop_talking()}
         />
       );
     } else {
-      return <Manchinh click_chi_tiet={data => this.click_chi_tiet(data)} />;
+      return (
+        <Manchinh
+          stop_talking={() => this.stop_talking()}
+          click_chi_tiet={(data) => this.click_chi_tiet(data)}
+        />
+      );
     }
   };
 
@@ -85,7 +102,7 @@ class App extends Component {
           style={{
             backgroundColor: "black",
             height: 800,
-            width: 1280
+            width: 1280,
           }}
         ></div>
       );
@@ -96,13 +113,13 @@ class App extends Component {
 
   wake_up = () => {
     fetch(url.wake_up)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log(data);
       })
-      .catch(Error => console.log(Error));
+      .catch((Error) => console.log(Error));
   };
 
   render() {
@@ -110,7 +127,7 @@ class App extends Component {
       <div
         onClick={() => {
           this.setState({
-            is_blank: false
+            is_blank: false,
           });
           this.wake_up();
         }}

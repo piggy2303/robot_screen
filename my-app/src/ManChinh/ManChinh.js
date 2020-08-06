@@ -5,19 +5,19 @@ import { data_man_chinh } from "../data/data";
 import url from "../url";
 
 class ManchiTiet extends Component {
-  thuyet_minh = id => {
+  thuyet_minh = (id) => {
     fetch(url.thuyet_minh + "?id=" + id)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log(data);
       })
-      .catch(Error => console.log(Error));
+      .catch((Error) => console.log(Error));
   };
 
   ren_data = () => {
-    return data_man_chinh.map(item => (
+    return data_man_chinh.map((item) => (
       <div
         className="col-md-4 col-sm-6 portfolio-item"
         onClick={() => {
@@ -53,6 +53,14 @@ class ManchiTiet extends Component {
                 <h3 className="section-subheading text-muted">
                   Danh sách các khu trưng bày
                 </h3>
+              </div>
+              <div className="btn-slient-main">
+                <div
+                  className="btn-child"
+                  onClick={() => this.props.stop_talking()}
+                >
+                  <i className="fas fa-volume-mute fa-3x"></i>
+                </div>
               </div>
             </div>
             <div className="row">{this.ren_data()}</div>

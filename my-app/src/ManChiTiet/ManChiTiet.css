@@ -206,6 +206,16 @@ h6 {
   width: auto;
 }
 
+.btn-slient {
+  z-index: 4;
+  position: absolute;
+  left: 2rem;
+  bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+}
+
 .btn-group {
   z-index: 2;
   position: absolute;
