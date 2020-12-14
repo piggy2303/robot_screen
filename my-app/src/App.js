@@ -18,7 +18,7 @@ class App extends Component {
       is_chi_tiet: false,
       data_chi_tiet: null,
       is_blank: false,
-      type: MANCHINH
+      type: MANCHUCNANG,
     };
   }
 
@@ -26,13 +26,13 @@ class App extends Component {
 
   stop_thuyet_minh = () => {
     fetch(url.stop_thuyet_minh)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log(data);
       })
-      .catch(Error => console.log(Error));
+      .catch((Error) => console.log(Error));
   };
 
   render_main = () => {
@@ -41,7 +41,7 @@ class App extends Component {
         <ManchiTiet
           click_back={() => {
             this.setState({
-              type: MANCHUCNANG
+              type: MANCHUCNANG,
             });
             this.stop_thuyet_minh();
           }}
@@ -54,7 +54,7 @@ class App extends Component {
         <Manchinh
           go_chuc_nang={() =>
             this.setState({
-              type: MANCHUCNANG
+              type: MANCHUCNANG,
             })
           }
         />
@@ -63,10 +63,10 @@ class App extends Component {
     if (this.state.type == MANCHUCNANG) {
       return (
         <ManChucnang
-          click_chi_tiet={data =>
+          click_chi_tiet={(data) =>
             this.setState({
               type: MANCHITIET,
-              data_chi_tiet: data
+              data_chi_tiet: data,
             })
           }
           click_back={() => this.setState({ type: MANCHINH })}

@@ -5,19 +5,19 @@ import { data_man_chinh } from "../data/data";
 import url from "../url";
 
 class ManchiTiet extends Component {
-  thuyet_minh = id => {
+  thuyet_minh = (id) => {
     fetch(url.thuyet_minh + "?id=" + id)
-      .then(response => {
+      .then((response) => {
         return response.json();
       })
-      .then(data => {
+      .then((data) => {
         console.log(data);
       })
-      .catch(Error => console.log(Error));
+      .catch((Error) => console.log(Error));
   };
 
   ren_data = () => {
-    return data_man_chinh.map(item => (
+    return data_man_chinh.map((item) => (
       <div
         className="col-md-4 col-sm-6 portfolio-item"
         onClick={() => {
@@ -45,7 +45,7 @@ class ManchiTiet extends Component {
       <div id="page-top">
         <section className="bg-light page-section" id="portfolio">
           <div className="container">
-            <div className="row">
+            {/* <div className="row">
               <div className="col-md-4 col-sm-6 portfolio-item"></div>
               <div className="col-md-4 col-sm-6 portfolio-item">
                 <div
@@ -56,14 +56,14 @@ class ManchiTiet extends Component {
                     justifyContent: "center",
                     paddingTop: 10,
                     borderRadius: 15,
-                    backgroundColor: "rgb(21,101,192)"
+                    backgroundColor: "rgb(21,101,192)",
                   }}
                   onClick={() => this.props.click_back()}
                 >
                   <h1 style={{ color: "white" }}>Thoát</h1>
                 </div>
               </div>
-            </div>
+            </div> */}
             <div className="row">{this.ren_data()}</div>
           </div>
         </section>
