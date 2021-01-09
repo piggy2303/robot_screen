@@ -1,7 +1,3 @@
-sudo fuser -k 3011/tcp
-nohup python3 index.py &
-
-killall node
-cd my-app
-npm run build
-serve -s build & disown
+docker stop robot
+docker build . -t robotscreen 
+docker run -d -p 5000:5000 --name robot robotscreen
